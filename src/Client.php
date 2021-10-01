@@ -190,7 +190,7 @@ class Client
             ];
 
             try {
-                $response = $this->_client->request('POST', "v1/user/" . $userId, ['json' => $data, "headers" => ["Access-Token" => $this->_machineAccessToken]]);
+                $response = $this->_client->request('PUT', "v1/user/" . $userId, ['json' => $data, "headers" => ["Access-Token" => $this->_machineAccessToken]]);
             } catch (\GuzzleHttp\Exception\GuzzleException $e) {
                 return false;
             }
