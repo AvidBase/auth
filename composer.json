@@ -1,5 +1,5 @@
 {
-  "name": "avidbase/client",
+  "name": "avidbase/auth",
   "description": "Provides access to authentication and user service provided by AvidBase",
   "type": "library",
   "minimum-stability": "dev",
