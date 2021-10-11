@@ -20,8 +20,7 @@ class Client
         if ($isProduction) {
             $this->_baseUrl = "https://api.avidbase.com/";
         } else {
-//            $this->_baseUrl = "https://dev-api.avidbase.com/";
-            $this->_baseUrl = "http://localhost/";
+            $this->_baseUrl = "https://dev-api.avidbase.com/";
         }
         $this->_accountId = $account;
         $this->_apiKey = $key;
@@ -211,11 +210,7 @@ class Client
         if ($this->isValidMachineAccessToken()) {
             try {
                 $response = $this->_client->request('PUT', "v1/user/" . $userId . "/role/" . $roleName, ["headers" => ["Access-Token" => $this->_machineAccessToken]]);
-                print_r($response);
-                exit;
             } catch (\GuzzleHttp\Exception\GuzzleException $e) {
-                print_r($e->getMessage());
-                exit;
                 return false;
             }
 
