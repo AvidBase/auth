@@ -192,11 +192,7 @@ class Client
 
             try {
                 $response = $this->_client->request('PUT', "v1/user/" . $userId, ['json' => $data, "headers" => ["Access-Token" => $this->_machineAccessToken]]);
-                print_r($response);
-                exit;
             } catch (\GuzzleHttp\Exception\GuzzleException $e) {
-                print_r($e->getMessage());
-                exit;
                 return false;
             }
 
@@ -217,7 +213,11 @@ class Client
 
             try {
                 $response = $this->_client->request('PUT', "v1/user/" . $userId . "/role/" . $roleName, ['json' => $data, "headers" => ["Access-Token" => $this->_machineAccessToken]]);
+                print_r($response);
+                exit;
             } catch (\GuzzleHttp\Exception\GuzzleException $e) {
+                print_r($e->getMessage());
+                exit;
                 return false;
             }
 
