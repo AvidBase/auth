@@ -203,4 +203,25 @@ class Client
 
         return false;
     }
+
+    // Add role to an existing user using user id and role name
+    public function AddRole($userId, $roleName)
+    {
+        if ($this->isValidMachineAccessToken()) {
+            $data = [];
+
+            try {
+                $response = $this->_client->request('PUT', "v1/user/" . $userId . "/" . $roleName, ['json' => $data, "headers" => ["Access-Token" => $this->_machineAccessToken]]);
+            } catch (\GuzzleHttp\Exception\GuzzleException $e) {
+                return false;
+            }
+
+            // See if the response is success or not
+            if ($response->getStatusCode() == 200) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
