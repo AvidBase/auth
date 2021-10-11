@@ -20,7 +20,8 @@ class Client
         if ($isProduction) {
             $this->_baseUrl = "https://api.avidbase.com/";
         } else {
-            $this->_baseUrl = "https://dev-api.avidbase.com/";
+//            $this->_baseUrl = "https://dev-api.avidbase.com/";
+            $this->_baseUrl = "http://localhost/";
         }
         $this->_accountId = $account;
         $this->_apiKey = $key;
