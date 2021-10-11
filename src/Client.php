@@ -211,7 +211,7 @@ class Client
             $data = [];
 
             try {
-                $response = $this->_client->request('PUT', "v1/user/" . $userId . "/" . $roleName, ['json' => $data, "headers" => ["Access-Token" => $this->_machineAccessToken]]);
+                $response = $this->_client->request('PUT', "v1/user/" . $userId . "/role/" . $roleName, ['json' => $data, "headers" => ["Access-Token" => $this->_machineAccessToken]]);
             } catch (\GuzzleHttp\Exception\GuzzleException $e) {
                 return false;
             }
