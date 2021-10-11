@@ -209,10 +209,8 @@ class Client
     public function AddRole($userId, $roleName)
     {
         if ($this->isValidMachineAccessToken()) {
-            $data = [];
-
             try {
-                $response = $this->_client->request('PUT', "v1/user/" . $userId . "/role/" . $roleName, ['json' => $data, "headers" => ["Access-Token" => $this->_machineAccessToken]]);
+                $response = $this->_client->request('PUT', "v1/user/" . $userId . "/role/" . $roleName, ["headers" => ["Access-Token" => $this->_machineAccessToken]]);
                 print_r($response);
                 exit;
             } catch (\GuzzleHttp\Exception\GuzzleException $e) {
